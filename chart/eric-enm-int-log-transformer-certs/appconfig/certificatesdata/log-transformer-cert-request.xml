@@ -1,0 +1,38 @@
+<applications xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CertificateRequest.xsd">
+<application>
+    <certificates>
+        <certificate>
+            <certificatechain>false</certificatechain>
+            <tbscertificate>
+                <subject>
+                    <entityname>LogTransformer##hostname##</entityname>
+                    <distinguishname>CN=LogTransformer_##hostname##</distinguishname>
+                </subject>
+            </tbscertificate>
+            <endentityprofilename>LogTransformer_EP</endentityprofilename>
+            <keypair>
+                <keypairsize>2048</keypairsize>
+                <keypairalgorithm>RSA</keypairalgorithm>
+            </keypair>
+            <keystore>
+                <base64keystore>
+                    <storealias>eric-enm-log-transformer</storealias>
+                    <keyfilelocation>/ericsson/logtransformer/eric-enm-log-transformer.key</keyfilelocation>
+                    <certificatefilelocation>/ericsson/logtransformer/eric-enm-log-transformer.crt</certificatefilelocation>
+                </base64keystore>
+            </keystore>
+            <truststore>
+                <base64truststore>
+                    <storealias>eric-enm-log-transformer-trust</storealias>
+                    <storelocation>/ericsson/logtransformer/eric-enm-log-transformer-trust.pem</storelocation>
+                </base64truststore>
+            </truststore>
+        </certificate>
+    </certificates>
+    <crlupdatemode>CrlNotManaged</crlupdatemode>
+</application>
+<user>
+    <username>root</username>
+    <usergroup>root</usergroup>
+</user>
+</applications>

@@ -1,0 +1,46 @@
+# This is where you set any configuration that you need.
+# Before this is merged, all other SG's should have been disabled.
+# yaml manipulation is all done with yq: https://mikefarah.gitbook.io/yq/
+global:
+  security:
+    tls:
+      enabled: false
+  registry:
+    url:
+    pullSecret:
+productNumber: CXC Placeholder
+productRevision: R1A
+labels: {}
+imageCredentials:
+  repoPath: proj-enm
+  pullPolicy: IfNotPresent
+  registry:
+    url:
+    pullSecret:
+eric-enm-common-helmchart-library:
+  enabled: true
+service:
+  name: eric-log-transformer
+  labels:
+securityPolicy:
+  rolename: eric-log-transformer
+nodeSelector: {}
+credmController:
+  name: eric-enm-credm-controller
+  port: 5001
+jobs:
+  jobAction: certrequest
+  certRequest:
+    imageName: enm-certrequestjob-container
+    pullPolicy: IfNotPresent
+    tag: 1.52.0-33
+    includeLoadBalancer: true
+    resources:
+      requests:
+        enabled: true
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        enabled: true
+        cpu: 500m
+        memory: 512Mi

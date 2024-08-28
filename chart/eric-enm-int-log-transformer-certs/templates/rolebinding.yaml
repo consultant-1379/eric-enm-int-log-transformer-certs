@@ -1,0 +1,4 @@
+{{- include "eric-enm-common-helmchart-library.rolebinding.tpl" . }}
+
+---
+{{- include "eric-enm-common-helmchart-library.rbscc.tpl" . }}
